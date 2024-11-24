@@ -27,7 +27,7 @@ function generate_left_side_string() {
 	echo "#[fg=${PALLETE[fg_gutter]},bold]#{?client_prefix,#[bg=${PALLETE[yellow]}],#[bg=${PALLETE[green]}]} ${session_icon} #S ${separator_end}"
 }
 
-function generate_inactive_window_string() {
+function generate_active_window_string() {
 
 	inactive_window_icon=$(get_tmux_option "@theme_plugin_inactive_window_icon" " ")
 	zoomed_window_icon=$(get_tmux_option "@theme_plugin_zoomed_window_icon" " ")
@@ -50,7 +50,7 @@ function generate_inactive_window_string() {
 	echo "${separator_start}#[fg=${PALLETE[white]}]${separator_internal}#I#[fg=${PALLETE[white]}] #{?window_zoomed_flag,$zoomed_window_icon,$inactive_window_icon}${inactive_window_title}${separator_end}"
 }
 
-function generate_active_window_string() {
+function generate_inactive_window_string() {
 
 	active_window_icon=$(get_tmux_option "@theme_plugin_active_window_icon" " ")
 	zoomed_window_icon=$(get_tmux_option "@theme_plugin_zoomed_window_icon" " ")
