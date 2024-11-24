@@ -39,16 +39,15 @@ function generate_active_window_string() {
 		left_separator_inverse=$(get_tmux_option "@theme_transparent_left_separator_inverse" "")
 
 		local separator_start="#[bg=default,fg=${PALLETE['dark5']}]${left_separator_inverse}#[bg=${PALLETE['dark5']},fg=${PALLETE['bg_highlight']}]"
-		local separator_internal="#[bg=${PALLETE['green1']},fg=${PALLETE['dark5']}]${left_separator:?}#[none]"
+		local separator_internal="#[bg=${PALLETE['dark3']},fg=${PALLETE['dark5']}]${left_separator:?}#[none]"
 		local separator_end="#[bg=default,fg=${PALLETE['dark3']}]${left_separator:?}#[none]"
 	else
 		local separator_start="#[bg=${PALLETE['dark5']},fg=${PALLETE['bg_highlight']}]${left_separator:?}#[none]"
 		local separator_internal="#[bg=${PALLETE['dark3']},fg=${PALLETE['dark5']}]${left_separator:?}#[none]"
 		local separator_end="#[bg=${PALLETE[bg_highlight]},fg=${PALLETE['dark3']}]${left_separator:?}#[none]"
 	fi
-	red=$'\033[1;31m'
-	nc=$'\033[0m'
-	echo "${separator_start}#[fg=${PALLETE[white]}]${separator_internal}#I#[fg=${PALLETE[white]}] #{?window_zoomed_flag,${red}zoomed_window_icon$nc,$inactive_window_icon}${inactive_window_title}${separator_end}"
+
+	echo "${separator_start}#[fg=${PALLETE[white]}]${separator_internal}#I#[fg=${PALLETE[white]}] #{?window_zoomed_flag,$zoomed_window_icon,$inactive_window_icon}${inactive_window_title}${separator_end}"
 }
 
 function generate_inactive_window_string() {
