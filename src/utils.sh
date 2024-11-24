@@ -47,7 +47,7 @@ function generate_active_window_string() {
 		local separator_end="#[bg=${PALLETE[bg_highlight]},fg=${PALLETE['dark3']}]${left_separator:?}#[none]"
 	fi
 
-	echo "${separator_start}#[fg=${PALLETE[white]}]${separator_internal}#I#[fg=${PALLETE[white]}] #{?window_zoomed_flag,$zoomed_window_icon,$inactive_window_icon}${inactive_window_title}${separator_end}"
+	echo "${separator_start}#[fg=${PALLETE[white]}]${separator_internal}#I#[fg=${PALLETE['white']}] #{?window_zoomed_flag,$zoomed_window_icon,$inactive_window_icon}${inactive_window_title}${separator_end}"
 }
 
 function generate_inactive_window_string() {
